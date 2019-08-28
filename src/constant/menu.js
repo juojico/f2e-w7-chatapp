@@ -9,7 +9,7 @@ export const MAIN_MENU = [
   },
   {
     path: '/club/',
-    name: 'BAR'
+    name: 'CLUB'
   },
   {
     path: '/room/',

@@ -1,16 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import { ROOM_TEXT, MOCK_ROOMS } from "../../constant/room";
+import MainArea from "../../component/MainArea";
 
-const MainArea = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: ${props => props.theme.primary};
-    text-align: center;
+const rooms = MOCK_ROOMS;
+
+const BoxArea = styled.div`
+  padding: 20px 40px;
 `;
 
 const Room = () => {
-    return <MainArea>Room Screen</MainArea>
-}
+  return (
+    <MainArea title={ROOM_TEXT.title} subtitled={ROOM_TEXT.subtitled}>
+      <BoxArea>{rooms.map(item=>item.name)}</BoxArea>
+    </MainArea>
+  );
+};
 
 export default Room;

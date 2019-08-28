@@ -1,16 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import { CLUB_TEXT, MOCK_CLUBS } from "../../constant/club";
+import MainArea from "../../component/MainArea";
 
-const MainArea = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: ${props => props.theme.primary};
-    text-align: center;
+const clubs = MOCK_CLUBS;
+
+const BoxArea = styled.div`
+  padding: 20px 40px;
 `;
 
 const Club = () => {
-    return <MainArea>Club Screen</MainArea>
-}
+  return (
+    <MainArea title={CLUB_TEXT.title} subtitled={CLUB_TEXT.subtitled}>
+      <BoxArea>{clubs.map(item=>item.id)}</BoxArea>
+    </MainArea>
+  );
+};
 
 export default Club;

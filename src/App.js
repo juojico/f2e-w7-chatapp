@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import MainMenu from "./componet/MainMenu";
+import MainMenu from "./component/MainMenu";
 
 const Hall = lazy(() => import("./router/hall"));
 const Bar = lazy(() => import("./router/bar"));
@@ -13,6 +13,7 @@ const defaultTheme = {
   secondary: "white",
   lightgrey: "rgba(0, 0, 0, 0.4)",
   grey: "rgba(0, 0, 0, 0.53)",
+  whitegrey: "rgba(255, 255, 255, 0.6)",
   black: "black",
   white: "white"
 };

@@ -1,26 +1,40 @@
 import React from "react";
-import propTypes from 'prop-types';
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const TextBox = styled.div`
   box-sizing: border-box;
   width: 100%;
   color: ${props => props.theme[props.color]};
-  ${props => props.type === "p1"?`
+  ${props =>
+    props.type === "p1"
+      ? `
     padding: 10px;
     color: balck;
-    text-align: center;
     font-size: 14px;
+    text-align: center;
     font-weight: bold;
     letter-spacing: 1.3px;
-  `:null};
-  ${props => props.type === "p2"?`
-    padding: 10px;
+  `
+      : null};
+  ${props =>
+    props.type === "p2"
+      ? `
+    padding: 10px 0;
     color: rgba(0, 0, 0, 0.4);
-    text-align: center;
     font-size: 13px;
     letter-spacing: -0.08px;
-  `:null};
+  `
+      : null};
+  ${props =>
+    props.type === "h1"
+      ? `
+    color: black;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 0.41px;
+  `
+      : null};
 `;
 
 const Text = ({
@@ -29,6 +43,8 @@ const Text = ({
   size,
   color,
   themeColor,
+  fontWeight,
+  fontStyle,
   padding,
   top,
   bottom,
@@ -43,6 +59,8 @@ const Text = ({
         padding,
         fontSize: size,
         textAlign: align,
+        fontWeight,
+        fontStyle,
         paddingTop: top,
         paddingBottom: bottom,
         paddingLeft: left,
@@ -61,6 +79,8 @@ Text.propTypes = {
   size: propTypes.string,
   color: propTypes.string,
   themeColor: propTypes.string,
+  fontWeight: propTypes.string,
+  fontStyle: propTypes.string,
   padding: propTypes.string,
   top: propTypes.string,
   bottom: propTypes.string,

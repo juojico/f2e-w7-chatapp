@@ -1,28 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { HALL_TEXT, MOCK_TOPIC } from "../../constant/hall";
-import Text from "../../componet/Text";
-import Img from "../../componet/Img";
-import Owl from "../../componet/Owl";
-import Button from "../../componet/Button";
-import HallBox from "../../componet/HallBox";
+import Img from "../../component/Img";
+import Owl from "../../component/Owl";
+import Text from "../../component/Text";
+import Button from "../../component/Button";
+import HallBox from "../../component/HallBox";
+import MainArea from "../../component/MainArea";
 import logo from "../../asset/icon/logo.svg";
 
 const topics = MOCK_TOPIC;
 
-const MainArea = styled.div`
-  box-sizing: border-box;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 85px;
-  background-color: ${props => props.theme.primary};
-  text-align: center;
-  overflow-y: auto;
-`;
-
 const WelcomeArea = styled.div`
-  padding: 32px 40px 0 40px;
+  padding: 0 40px;
 `;
 
 const HallBoxArea = styled.div`
@@ -33,7 +23,7 @@ const Hall = () => {
   return (
     <MainArea>
       <WelcomeArea>
-        <Text type='p2'>{HALL_TEXT.welcome}</Text>
+        <Text type='p2' align="center">{HALL_TEXT.welcome}</Text>
         <Img src={logo} width='241px' height='33px' />
         <Owl />
         <Text type='p1'>{HALL_TEXT.chooseLogin}</Text>

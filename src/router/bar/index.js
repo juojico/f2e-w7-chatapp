@@ -1,16 +1,52 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { BAR_TEXT, MOCK_BARS } from "../../constant/bar";
+import MainArea from "../../component/MainArea";
+import Label from "../../component/Label";
+import BarBox from "../../component/BarBox";
 
-const MainArea = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: ${props => props.theme.primary};
-    text-align: center;
+const bars = MOCK_BARS;
+
+const FilterArea = styled.div`
+  padding: 20px 26px;
+  display: block;
+  overflow-x: auto;
+`;
+
+const LabelBox = styled.div`
+  display: inline-flex;
+`;
+
+const BoxArea = styled.div`
+  padding: 4px 26px;
 `;
 
 const Bar = () => {
-    return <MainArea>Bar Screen</MainArea>
-}
+  const [label, setLabel] = useState(0);
+  return (
+    <MainArea title={BAR_TEXT.title} subtitled={BAR_TEXT.subtitled}>
+      <FilterArea>
+        <LabelBox>
+          {BAR_TEXT.filter.map((item, index) => {
+            return (
+              <Label
+                key={`label${index}`}
+                text={item}
+                icon={item}
+                active={label === index ? true : false}
+                onClick={() => setLabel(index)}
+              />
+            );
+          })}
+        </LabelBox>
+      </FilterArea>
+      <BoxArea>
+        {bars.map(item => {
+          return <BarBox key={`barBox${item.name}`} data={item} />;
+        })}
+      </BoxArea>
+    </MainArea>
+  );
+};
 
 export default Bar;

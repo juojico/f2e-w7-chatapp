@@ -13,6 +13,7 @@ const HallBoxWrapper = styled.div`
   color: white;
   background-color: black;
   text-align: left;
+  cursor: pointer;
   &::before,
   &::after {
     position: absolute;
