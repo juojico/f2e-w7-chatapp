@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import MainMenu from "./componet/MainMenu";
 
@@ -36,9 +36,9 @@ function App() {
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path='/' component={Hall} />
-              <Route path='/bar/' component={Bar} />
-              <Route path='/club/' component={Club} />
-              <Route path='/room/' component={Room} />
+              <Route exact path='/bar/' component={Bar} />
+              <Route exact path='/club/' component={Club} />
+              <Route exact path='/room/' component={Room} />
             </Switch>
           </Suspense>
         </Router>
