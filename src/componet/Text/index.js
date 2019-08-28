@@ -4,11 +4,12 @@ import styled from "styled-components";
 const TextBox = styled.div`
   box-sizing: border-box;
   width: 100%;
+  color: ${props => props.theme[props.color]};
   ${props => props.type === "p1"?`
     padding: 10px;
     color: balck;
     text-align: center;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     letter-spacing: 1.3px;
   `:null};
@@ -26,6 +27,7 @@ const Text = ({
   align,
   size,
   color,
+  themeColor,
   padding,
   top,
   bottom,
@@ -45,6 +47,7 @@ const Text = ({
         paddingLeft: left,
         paddingRight: right
       }}
+      color={themeColor}
       {...props}
     >
       {children}
