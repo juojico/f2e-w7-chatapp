@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types';
 import styled from "styled-components";
 
 const ImgBox = styled.div`
@@ -51,6 +52,26 @@ const Img = ({
       {children}
     </ImgBox>
   );
+};
+
+Img.propTypes = {
+  src: propTypes.string,
+  align: propTypes.string,
+  color: propTypes.string,
+  width: propTypes.string,
+  height: propTypes.string,
+  padding: propTypes.string,
+  margin: propTypes.string,
+  top: propTypes.string,
+  bottom: propTypes.string,
+  left: propTypes.string,
+  right: propTypes.string,
+  z: propTypes.number
+};
+
+Img.defaultProps = {
+  width: '100%',
+  height: '100%'
 };
 
 export default Img;

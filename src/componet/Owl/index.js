@@ -43,7 +43,7 @@ const Owl = () => {
     <OwlWrapper>
       <GearL />
       <GearS />
-      <Img src={owl} width='43px' height='56px' top='7px' left='24px' z='2' />
+      <Img src={owl} width='43px' height='56px' top='7px' left='24px' z={2} />
     </OwlWrapper>
   );
 };

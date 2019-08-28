@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types';
 import styled from "styled-components";
 
 const TextBox = styled.div`
@@ -53,6 +54,18 @@ const Text = ({
       {children}
     </TextBox>
   );
+};
+
+Text.propTypes = {
+  align: propTypes.string,
+  size: propTypes.string,
+  color: propTypes.string,
+  themeColor: propTypes.string,
+  padding: propTypes.string,
+  top: propTypes.string,
+  bottom: propTypes.string,
+  left: propTypes.string,
+  right: propTypes.string
 };
 
 export default Text;

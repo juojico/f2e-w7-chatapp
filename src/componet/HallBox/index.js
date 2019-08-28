@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types';
 import styled from "styled-components";
 import Text from "../Text";
 import fire from "../../asset/icon/fire.svg";
@@ -52,6 +53,18 @@ const HallBox = ({ title, content, hot, ...props }) => {
       </Comment>
     </HallBoxWrapper>
   );
+};
+
+HallBox.propTypes = {
+  title: propTypes.string,
+  content: propTypes.string,
+  hot: propTypes.number
+};
+
+HallBox.defaultProps = {
+  title: '無標題',
+  content: '無內容',
+  hot: 0
 };
 
 export default HallBox;

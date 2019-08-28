@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from 'prop-types';
 import styled from "styled-components";
 import btnFancy from "../../asset/ui/btn-active-decoration.png";
 
@@ -100,8 +101,8 @@ const BtnDots = styled.div`
 const Button = ({
   type,
   text,
-  color = "white",
-  bgColor = "black",
+  color,
+  bgColor,
   maxWidth,
   fancy,
   dot,
@@ -120,6 +121,19 @@ const Button = ({
       {text}
     </BtnBox>
   );
+};
+
+Button.propTypes = {
+  type: propTypes.string,
+  text: propTypes.string,
+  color: propTypes.string,
+  bgColor: propTypes.string,
+  maxWidth: propTypes.string,
+};
+
+Button.defaultProps = {
+  color: 'white',
+  bgColor: 'black'
 };
 
 export default Button;
