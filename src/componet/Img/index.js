@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ImgBox = styled.div`
+  position: ${props => props.z?'absolute':null};
   width: 100%;
   margin: auto;
   display: flex;
@@ -25,6 +26,7 @@ const Img = ({
   bottom,
   left,
   right,
+  z,
   ...props
 }) => {
   return (
@@ -36,12 +38,14 @@ const Img = ({
         height,
         padding,
         margin,
+        z,
         alignItems: align,
         marginTop: top,
         marginBottom: bottom,
         marginLeft: left,
         marginRight: right
       }}
+      z={z}
       {...props}
     >
       {children}
