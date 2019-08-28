@@ -1,27 +1,100 @@
 import React from "react";
 import styled from "styled-components";
+import btnFancy from "../../asset/ui/btn-active-decoration.png";
 
 const BtnBox = styled.div`
   box-sizing: border-box;
+  position: relative;
   width: 100%;
+  max-width: ${props => props.maxWidth};
   padding: 14px;
-  margin: 10px 0;
+  margin: 10px auto 20px auto;
   color: ${props => props.theme[props.color]};
   font-size: 18px;
-  background-color: ${props => props.theme[props.bgColor]};
+  background-color: ${props =>
+    props.type === "outline" ? "transparent" : props.theme[props.bgColor]};
+  border: ${props =>
+    props.type === "outline"
+      ? "1px solid " + props.theme[props.color]
+      : "none"};
   border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.5s;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: 0.5s;
+  }
+  &:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    &::after {
+      opacity: 1;
+    }
+  }
 `;
 
-const BtnOutline = styled.div`
-  box-sizing: border-box;
+const BtnFancy = styled.div`
+  position: absolute;
   width: 100%;
-  padding: 14px;
-  margin: 10px 0;
-  color: ${props => props.theme[props.color]};
-  font-size: 18px;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme[props.color]};
-  border-radius: 50px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    width: 13px;
+    height: 100%;
+    background-image: url(${btnFancy});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  &::before {
+    left: 14px;
+  }
+  &::after {
+    right: 14px;
+  }
+`;
+
+const BtnDots = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 2px;
+    top: 50%;
+    margin-top: -1px;
+    background-color: ${props =>
+      props.type === "outline" ? "black" : props.theme.primary};
+    box-shadow: ${props =>
+      props.type === "outline"
+        ? "0 8px 0 black, 0 -8px 0 black"
+        : "0 13px 0 " +
+          props.theme.primary +
+          ", 0 -13px 0 " +
+          props.theme.primary};
+  }
+  &::before {
+    left: 20px;
+  }
+  &::after {
+    right: 20px;
+  }
 `;
 
 const Button = ({
@@ -29,20 +102,23 @@ const Button = ({
   text,
   color = "white",
   bgColor = "black",
+  maxWidth,
+  fancy,
+  dot,
   ...props
 }) => {
   return (
-    <>
-      {type === "outline" ? (
-        <BtnOutline color={color} bgColor={bgColor} {...props}>
-          {text}
-        </BtnOutline>
-      ) : (
-        <BtnBox color={color} bgColor={bgColor} {...props}>
-          {text}
-        </BtnBox>
-      )}
-    </>
+    <BtnBox
+      type={type}
+      color={color}
+      bgColor={bgColor}
+      maxWidth={maxWidth}
+      {...props}
+    >
+      {fancy ? <BtnFancy /> : null}
+      {dot ? <BtnDots type={type} color={color} /> : null}
+      {text}
+    </BtnBox>
   );
 };
 
