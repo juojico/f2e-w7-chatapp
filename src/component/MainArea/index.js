@@ -20,7 +20,7 @@ const Header = styled.div`
 
 const MainArea = ({ children, title, subtitled, ...props }) => {
   return (
-    <MainWrapper {...props}>
+    <MainWrapper {...props} className="myScroll">
       <Header>
         <Text type='p2'>{subtitled}</Text>
         <Text type='h1'>{title}</Text>

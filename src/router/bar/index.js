@@ -25,7 +25,7 @@ const Bar = () => {
   const [label, setLabel] = useState(0);
   return (
     <MainArea title={BAR_TEXT.title} subtitled={BAR_TEXT.subtitled}>
-      <FilterArea>
+      <FilterArea className="myScroll">
         <LabelBox>
           {BAR_TEXT.filter.map((item, index) => {
             return (
