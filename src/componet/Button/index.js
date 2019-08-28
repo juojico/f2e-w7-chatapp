@@ -7,7 +7,7 @@ const BtnBox = styled.div`
   position: relative;
   width: 100%;
   max-width: ${props => props.maxWidth};
-  padding: 14px;
+  padding: 11px;
   margin: 10px auto 20px auto;
   color: ${props => props.theme[props.color]};
   font-size: 18px;
@@ -16,7 +16,7 @@ const BtnBox = styled.div`
   border: ${props =>
     props.type === "outline"
       ? "1px solid " + props.theme[props.color]
-      : "none"};
+      : "1px solid transparent"};
   border-radius: 50px;
   cursor: pointer;
   overflow: hidden;
