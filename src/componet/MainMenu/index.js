@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { MAIN_MENU } from "../../constant/menu";
 import hall from "../../asset/icon/menu-hall.svg";
 import bar from "../../asset/icon/menu-bar.svg";
 import club from "../../asset/icon/menu-club.svg";
@@ -17,7 +18,6 @@ const MenuArea = styled.div`
   bottom: 0;
   padding: 6px;
   font-size: 10px;
-  color: ${props => props.theme.primary};
   background-color: ${props => props.theme.grey};
   backdrop-filter: blur(10px);
   z-index: 100;
@@ -30,7 +30,7 @@ const MenuArea = styled.div`
   & > a {
     opacity: 0.52;
     transition: 0.5s;
-    &:nth-child(${props => props.active}) {
+    &:nth-child(${props => props.active + 1}) {
       opacity: 1;
     }
   }
@@ -40,26 +40,20 @@ const MenuArea = styled.div`
   }
 `;
 
+const MenuImg = [hall, bar, club, room];
+
 const MainMenu = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   return (
     <MenuArea active={page}>
-      <Link to='/' onClick={() => setPage(1)}>
-        <img src={hall} alt='HALL' />
-        HALL
-      </Link>
-      <Link to='/bar/' onClick={() => setPage(2)}>
-        <img src={bar} alt='BAR' />
-        BAR
-      </Link>
-      <Link to='/club/' onClick={() => setPage(3)}>
-        <img src={club} alt='CLUB' />
-        CLUB
-      </Link>
-      <Link to='/room/' onClick={() => setPage(4)}>
-        <img src={room} alt='ROOM' />
-        ROOM
-      </Link>
+      {MAIN_MENU.map((item, index) => {
+        return (
+          <Link key={`mainMenu${index}`} to={item.path} onClick={() => setPage(index)}>
+            <img src={MenuImg[index]} alt={item.name} />
+            {item.name}
+          </Link>
+        );
+      })}
     </MenuArea>
   );
 };
