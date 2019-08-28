@@ -13,6 +13,7 @@ const defaultTheme = {
   secondary: "white",
   lightgrey: "rgba(0, 0, 0, 0.4)",
   grey: "rgba(0, 0, 0, 0.53)",
+  darkgrey: "rgba(0, 0, 0, 0.7)",
   whitegrey: "rgba(255, 255, 255, 0.6)",
   black: "black",
   white: "white"
@@ -36,10 +37,10 @@ function App() {
           <MainMenu />
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
-              <Route exact path='/' component={Hall} />
-              <Route exact path='/bar/' component={Bar} />
-              <Route exact path='/club/' component={Club} />
-              <Route exact path='/room/' component={Room} />
+              <Route exact path="/" component={Hall} />
+              <Route exact path="/bar/" component={Bar} />
+              <Route exact path="/club/" component={Club} />
+              <Route exact path="/room/" component={Room} />
             </Switch>
           </Suspense>
         </Router>

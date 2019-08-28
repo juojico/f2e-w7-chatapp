@@ -35,6 +35,4 @@ MainArea.propTypes = {
   subtitled: propTypes.string
 };
 
-MainArea.defaultProps = {};
-
 export default MainArea;
