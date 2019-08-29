@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import MainMenu from "./component/MainMenu";
+import Loader from "./component/Loader";
 
 const Hall = lazy(() => import("./router/hall"));
 const Bar = lazy(() => import("./router/bar"));
@@ -35,12 +36,12 @@ function App() {
       <Main>
         <Router>
           <MainMenu />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Switch>
-              <Route exact path="/" component={Hall} />
-              <Route exact path="/bar/" component={Bar} />
-              <Route exact path="/club/" component={Club} />
-              <Route exact path="/room/" component={Room} />
+              <Route exact path='/' component={Hall} />
+              <Route exact path='/bar/' component={Bar} />
+              <Route exact path='/club/' component={Club} />
+              <Route exact path='/room/' component={Room} />
             </Switch>
           </Suspense>
         </Router>
