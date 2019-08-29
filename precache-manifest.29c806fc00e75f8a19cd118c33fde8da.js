@@ -1,39 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "86ff6c1419d5707dae1ab23332d3a397",
+    "revision": "b38af27dc7e71c02881e4b7502a8aeca",
     "url": "/f2e-w7-chatapp/index.html"
   },
   {
-    "revision": "5df56098edd97566e534",
-    "url": "/f2e-w7-chatapp/static/css/main.ec851d19.chunk.css"
+    "revision": "a32cadb410a89f3b2c31",
+    "url": "/f2e-w7-chatapp/static/css/main.b0813be4.chunk.css"
   },
   {
-    "revision": "e7a1ba1982f0a503c11d",
-    "url": "/f2e-w7-chatapp/static/js/2.89224b53.chunk.js"
+    "revision": "e73d0fe8e0d49d468e25",
+    "url": "/f2e-w7-chatapp/static/js/2.8e921c30.chunk.js"
   },
   {
-    "revision": "001103986f28fb0fc93e",
-    "url": "/f2e-w7-chatapp/static/js/3.bc5c1b0a.chunk.js"
+    "revision": "e7b17f5abb57e78c7d91",
+    "url": "/f2e-w7-chatapp/static/js/3.996bb059.chunk.js"
   },
   {
-    "revision": "0cebeea9c669774c1d5a",
-    "url": "/f2e-w7-chatapp/static/js/4.e2bf22e3.chunk.js"
+    "revision": "ea1c68109918c328e185",
+    "url": "/f2e-w7-chatapp/static/js/4.c6799ea6.chunk.js"
   },
   {
-    "revision": "a1adc6a31682bc722a2f",
-    "url": "/f2e-w7-chatapp/static/js/5.01eae706.chunk.js"
+    "revision": "a255caff946b28ac8c13",
+    "url": "/f2e-w7-chatapp/static/js/5.dff49c18.chunk.js"
   },
   {
-    "revision": "4955be60e10d73b1b9ba",
-    "url": "/f2e-w7-chatapp/static/js/6.34c2d6e4.chunk.js"
+    "revision": "23c15e193d4322b33fc8",
+    "url": "/f2e-w7-chatapp/static/js/6.82985ba3.chunk.js"
   },
   {
-    "revision": "5df56098edd97566e534",
-    "url": "/f2e-w7-chatapp/static/js/main.2e5c0740.chunk.js"
+    "revision": "a32cadb410a89f3b2c31",
+    "url": "/f2e-w7-chatapp/static/js/main.7ef73ec2.chunk.js"
   },
   {
-    "revision": "569572be816eb0a74781",
-    "url": "/f2e-w7-chatapp/static/js/runtime~main.ea7ffba3.js"
+    "revision": "3fd12493293e1e8ba1dc",
+    "url": "/f2e-w7-chatapp/static/js/runtime~main.4b29049e.js"
   },
   {
     "revision": "48a566385a8bfe2eb9f4778cef2be785",
