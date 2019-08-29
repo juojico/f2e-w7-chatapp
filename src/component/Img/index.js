@@ -1,14 +1,14 @@
 import React from "react";
-import propTypes from 'prop-types';
+import propTypes from "prop-types";
 import styled from "styled-components";
 
 const ImgBox = styled.div`
-  position: ${props => props.z?'absolute':null};
+  position: ${props => (props.z ? "absolute" : null)};
   width: 100%;
-  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -70,8 +70,8 @@ Img.propTypes = {
 };
 
 Img.defaultProps = {
-  width: '100%',
-  height: '100%'
+  width: "100%",
+  height: "100%"
 };
 
 export default Img;
