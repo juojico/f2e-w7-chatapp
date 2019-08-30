@@ -1,17 +1,23 @@
 import React from "react";
-import { MOCK_CHATS } from "../../constant/chat";
 import ChatArea from "../../component/ChatArea";
-import ChatBox from "../../component/ChatBox";
+import { MOCK_CHATS } from "../../constant/chat";
 
-const chats = MOCK_CHATS;
+const Chat = route => {
+  const { type, chatId } = route.match.params;
+  const goBack = () => {
+    route.history.goBack();
+  };
+  const { title, subtitled, img, chats } = MOCK_CHATS[chatId];
 
-const Chat = () => {
   return (
-    <ChatArea title={"Free talk"} type={"bar"}>
-      {chats.map(item => {
-        return <ChatBox key={`chatBox${item.id}`} data={item} />;
-      })}
-    </ChatArea>
+    <ChatArea
+      type={type}
+      title={title}
+      subtitled={subtitled}
+      img={img}
+      chats={chats}
+      onClickBack={goBack}
+    />
   );
 };
 

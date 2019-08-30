@@ -1,6 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import btnFancy from "../../asset/ui/btn-active-decoration.png";
 
 const BtnBox = styled.div`
@@ -42,6 +42,12 @@ const BtnBox = styled.div`
   }
 `;
 
+const gearRotate = keyframes`
+    to {
+        transform: rotate(360deg);
+    }
+`;
+
 const BtnFancy = styled.div`
   position: absolute;
   width: 100%;
@@ -58,6 +64,7 @@ const BtnFancy = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    animation: ${gearRotate} 2s linear reverse infinite;
   }
   &::before {
     left: 14px;

@@ -1,15 +1,15 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Img from "../Img";
 import Input from "../Input";
+import ChatBox from "../ChatBox";
 import back from "../../asset/icon/left-arrow.svg";
-import tie from "../../asset/icon/bar-tie-l.svg";
-import airship from "../../asset/icon/chat-airship.svg";
-import emoji from "../../asset/icon/chat-emoji.svg";
+import play from "../../asset/icon/chat-play.svg";
 import face from "../../asset/icon/chat-face.svg";
 import voice from "../../asset/icon/chat-voice.svg";
+import emoji from "../../asset/icon/chat-emoji.svg";
+import airship from "../../asset/icon/chat-airship.svg";
 
 const ChatAreaWrapper = styled.div`
   box-sizing: border-box;
@@ -32,11 +32,7 @@ const Header = styled.div`
   top: 0;
   width: 100%;
   height: 100px;
-  padding: 16px 24px;
-  color: white;
-  font-size: 22px;
-  font-style: italic;
-  font-weight: bold;
+  padding: 16px 16px 16px 40px;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
 `;
@@ -49,7 +45,22 @@ const HeadIcon = styled(Img)`
 `;
 
 const HeadImg = styled(Img)`
-  margin: 0 14px 0 0;
+  margin: 0;
+`;
+
+const HeadTitle = styled.div`
+  ${props => props.type === 'bar'?null:"flex: 1;"}
+  padding-left: 14px;
+  h2 {
+    padding: 2px;
+    margin: 0;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+  }
+  span {
+    color: ${props => props.theme.primary};
+  }
 `;
 
 const InputArea = styled.div`
@@ -69,26 +80,41 @@ const InputBox = styled.div`
   padding: 8px 20px;
 `;
 
-const ChatArea = ({ children, title, type, ...props }) => {
+const ChatArea = ({
+  type,
+  title,
+  subtitled,
+  img,
+  chats,
+  onClickBack,
+  ...props
+}) => {
   return (
-    <ChatAreaWrapper {...props} className="myScroll">
+    <ChatAreaWrapper {...props} className='myScroll'>
       <Header>
-        <Link to="/bar/">
-          <HeadIcon src={back} width="16px" height="16px" />
-        </Link>
-        <HeadImg src={tie} width="32px" height="32px" />
-        {title}
+        <HeadIcon src={back} width='16px' height='16px' onClick={onClickBack} />
+        {type === "bar" ? (
+          <HeadImg src={img} width='32px' height='32px' />
+        ) : null}
+        <HeadTitle type={type}>
+          <h2>{title}</h2>
+          <span>{subtitled}</span>
+        </HeadTitle>
       </Header>
-      {children}
+      {chats.map(item => {
+        return <ChatBox key={`chatBox${item.id}`} data={item} />;
+      })}
       <InputArea>
         <InputBox>
-          <Img src={airship} width="24px" height="24px" right="12px" />
-          <Input rightIcon={<Img src={face} width="24px" height="24px" />} />
-          <Img src={airship} width="24px" height="24px" left="12px" />
+          {type === "bar" ? (
+            <Img src={play} width='24px' height='24px' right='12px' />
+          ) : null}
+          <Input rightIcon={<Img src={face} width='24px' height='24px' />} />
+          <Img src={airship} width='24px' height='24px' left='12px' />
         </InputBox>
         <InputBox>
-          <Img src={emoji} width="30px" height="30px" left="0" right="0" />
-          <Img src={voice} width="30px" height="30px" left="0" right="0" />
+          <Img src={emoji} width='30px' height='30px' left='0' right='0' />
+          <Img src={voice} width='30px' height='30px' left='0' right='0' />
         </InputBox>
       </InputArea>
     </ChatAreaWrapper>
@@ -96,8 +122,11 @@ const ChatArea = ({ children, title, type, ...props }) => {
 };
 
 ChatArea.propTypes = {
+  type: propTypes.string,
   title: propTypes.string,
-  type: propTypes.string
+  subtitled: propTypes.string,
+  img: propTypes.string,
+  chats: propTypes.array
 };
 
 export default ChatArea;

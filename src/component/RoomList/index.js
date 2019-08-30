@@ -1,10 +1,11 @@
 import React from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Text from "../Text";
 import Img from "../Img";
 
-const ListWrapper = styled.div`
+const ListWrapper = styled(Link)`
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -41,21 +42,21 @@ const MesBox = styled.div`
   padding-left: 10px;
 `;
 
-const RoomList = ({ data, ...props }) => {
+const RoomList = ({ data, pathTo, ...props }) => {
   return (
-    <ListWrapper {...props}>
-      <Img src={data.avatar} width="40px" height="40px" />
+    <ListWrapper to={pathTo} {...props}>
+      <Img src={data.avatar} width='40px' height='40px' />
       <MesBox>
         <Text
-          themeColor="black"
-          size="14px"
-          bottom="4px"
-          fontStyle="italic"
-          fontWeight="bold"
+          themeColor='black'
+          size='14px'
+          bottom='4px'
+          fontStyle='italic'
+          fontWeight='bold'
         >
           {data.name}
         </Text>
-        <Text themeColor="darkgrey" size="16px">
+        <Text themeColor='darkgrey' size='16px'>
           {data.lastMes}
         </Text>
       </MesBox>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MAIN_MENU } from "../../constant/menu";
@@ -22,35 +22,35 @@ const MenuArea = styled.div`
   backdrop-filter: blur(10px);
   z-index: 100;
   a {
-    font-weight: bold;
-    color: ${props => props.theme.primary};
     text-decoration-line: none;
-    letter-spacing: 3px;
   }
-  & > a {
-    opacity: 0.52;
-    transition: 0.5s;
-    &:nth-child(${props => props.active + 1}) {
-      opacity: 1;
-    }
-  }
-  img {
-    display: block;
-    margin: 4px auto;
-  }
+`;
+
+const MenuItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 48px;
+  font-weight: bold;
+  color: ${props => props.theme.primary};
+  letter-spacing: 3px;
+  opacity: 0.52;
+  transition: 0.5s;
 `;
 
 const MenuImg = [hall, bar, club, room];
 
-const MainMenu = () => {
-  const [page, setPage] = useState(0);
+const MainMenu = ({ path }) => {
   return (
-    <MenuArea active={page}>
+    <MenuArea>
       {MAIN_MENU.map((item, index) => {
         return (
-          <Link key={`mainMenu${index}`} to={item.path} onClick={() => setPage(index)}>
-            <img src={MenuImg[index]} alt={item.name} />
-            {item.name}
+          <Link key={`mainMenu${index}`} to={item.path}>
+            <MenuItem style={{ opacity: path === item.path ? 1 : 0.5 }}>
+              <img src={MenuImg[index]} alt={item.name} />
+              {item.name}
+            </MenuItem>
           </Link>
         );
       })}

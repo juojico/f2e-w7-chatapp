@@ -8,13 +8,13 @@ export const HALL_TEXT = {
 
 export const MOCK_TOPIC = [
   {
-    id: "123456",
+    id: 2019083001,
     title: "Plagiarism? Design?",
     content: "Should the designer use the (paid/ free) stock photography?",
     hot: 55
   },
   {
-    id: "123555",
+    id: 2019083002,
     title: "The struggling in Hong Kong",
     content: "Support Hong Kong",
     hot: 30

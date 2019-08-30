@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { HALL_TEXT, MOCK_TOPIC } from "../../constant/hall";
 import Img from "../../component/Img";
 import Owl from "../../component/Owl";
 import Text from "../../component/Text";
-import Button from "../../component/Button";
+import Input from "../../component/Input";
+import ButtonFancy from "../../component/ButtonFancy";
 import HallBox from "../../component/HallBox";
+import MainMenu from "../../component/MainMenu";
 import MainArea from "../../component/MainArea";
 import logo from "../../asset/icon/logo.svg";
 
@@ -17,39 +20,84 @@ const WelcomeArea = styled.div`
 
 const HallBoxArea = styled.div`
   padding: 20px 40px;
+  a {
+    text-decoration: none;
+  }
 `;
 
-const Hall = () => {
+const InputBox = styled.div`
+  height: ${props => (props.close ? "0" : "30px")};
+  overflow: hidden;
+  transition: 0.3s;
+`;
+
+const Hall = route => {
+  const [useAnonymous, setUseAnonymous] = useState(true);
+  const [nickName, setNickName] = useState("");
+  const nickname = useRef(null);
+
+  const handleUseAnonymous = () => {
+    setUseAnonymous(true);
+  };
+
+  const handleUseNickName = () => {
+    setUseAnonymous(false);
+    nickname.current.focus();
+  };
+
+  const handleInputChange = e => {
+    setNickName(e.target.value);
+    console.log("TCL: value", e.target.value, nickName);
+  };
+
   return (
-    <MainArea>
-      <WelcomeArea>
-        <Text type='p2' align="center">{HALL_TEXT.welcome}</Text>
-        <Img src={logo} width='241px' height='33px' />
-        <Owl />
-        <Text type='p1'>{HALL_TEXT.chooseLogin}</Text>
-        <Button text={HALL_TEXT.btn1} maxWidth='210px' fancy dot />
-        <Button
-          text={HALL_TEXT.btn2}
-          type='outline'
-          color='black'
-          maxWidth='210px'
-          dot
-        />
-      </WelcomeArea>
-      <HallBoxArea>
-        <Text type='p1'>{HALL_TEXT.dayTopic}</Text>
-        {topics.map((item, index) => {
-          return (
-            <HallBox
-              key={`topic${index}`}
-              title={item.title}
-              content={item.content}
-              hot={item.hot}
+    <>
+      <MainMenu path={route.match.path} />
+      <MainArea>
+        <WelcomeArea>
+          <Text type='p2' align='center'>
+            {HALL_TEXT.welcome}
+          </Text>
+          <Img src={logo} width='241px' height='33px' />
+          <Owl />
+          <Text type='p1'>{HALL_TEXT.chooseLogin}</Text>
+          <ButtonFancy
+            text={HALL_TEXT.btn1}
+            on={useAnonymous}
+            onClick={handleUseAnonymous}
+          />
+          <ButtonFancy
+            text={HALL_TEXT.btn2}
+            on={!useAnonymous}
+            onClick={handleUseNickName}
+          />
+          <InputBox close={useAnonymous}>
+            <Input
+              placeholder='Enter Your Nickname'
+              itemRef={nickname}
+              maxWidth='210px'
+              maxLength={20}
+              line
+              onChange={handleInputChange}
             />
-          );
-        })}
-      </HallBoxArea>
-    </MainArea>
+          </InputBox>
+        </WelcomeArea>
+        <HallBoxArea>
+          <Text type='p1'>{HALL_TEXT.dayTopic}</Text>
+          {topics.map((item, index) => {
+            return (
+              <Link key={`topic${index}`} to={`/topic/chat/${item.id}`}>
+                <HallBox
+                  title={item.title}
+                  content={item.content}
+                  hot={item.hot}
+                />
+              </Link>
+            );
+          })}
+        </HallBoxArea>
+      </MainArea>
+    </>
   );
 };
 
