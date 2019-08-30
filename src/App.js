@@ -8,6 +8,7 @@ const Hall = lazy(() => import("./router/hall"));
 const Bar = lazy(() => import("./router/bar"));
 const Club = lazy(() => import("./router/club"));
 const Room = lazy(() => import("./router/room"));
+const Chat = lazy(() => import("./router/chat"));
 
 const defaultTheme = {
   primary: "#DDB16F",
@@ -38,10 +39,11 @@ function App() {
           <MainMenu />
           <Suspense fallback={<Loader />}>
             <Switch>
-              <Route exact path='/' component={Hall} />
-              <Route exact path='/bar/' component={Bar} />
-              <Route exact path='/club/' component={Club} />
-              <Route exact path='/room/' component={Room} />
+              <Route exact path="/" component={Hall} />
+              <Route exact path="/bar/" component={Bar} />
+              <Route exact path="/club/" component={Club} />
+              <Route exact path="/room/" component={Room} />
+              <Route exact path="/chat/" component={Chat} />
             </Switch>
           </Suspense>
         </Router>

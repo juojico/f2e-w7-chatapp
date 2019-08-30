@@ -6,6 +6,7 @@ export const BAR_TEXT = {
 
 export const MOCK_BARS = [
   {
+    id: 21303201,
     name: "JOYFUL",
     description: "FREE TALK",
     nowTalking: ["typhoon","weather","plagiarism","designer","leopard cat"],
@@ -13,6 +14,7 @@ export const MOCK_BARS = [
     seatAble: 5
   },
   {
+    id: 21234223,
     name: "RELAXED",
     description: "LOVE TROUBLES",
     nowTalking: ["lost love","quarrel","delicious"],
@@ -20,6 +22,7 @@ export const MOCK_BARS = [
     seatAble: 3
   },
   {
+    id: 21323423,
     name: "INTENSE",
     description: "FREE TALK",
     nowTalking: ["typhoon","election","korean fish the director"],

@@ -3,10 +3,6 @@ import propTypes from "prop-types";
 import styled from "styled-components";
 import Text from "../Text";
 import Img from "../Img";
-import wine from "../../asset/avatar/wine.svg";
-import martini from "../../asset/avatar/martini.svg";
-import martini2 from "../../asset/avatar/martini2.svg";
-import martini3 from "../../asset/avatar/martini3.svg";
 
 const ListWrapper = styled.div`
   box-sizing: border-box;
@@ -45,17 +41,10 @@ const MesBox = styled.div`
   padding-left: 10px;
 `;
 
-const AVATAR = {
-  martini: martini,
-  martini2: martini2,
-  martini3: martini3,
-  wine: wine
-};
-
 const RoomList = ({ data, ...props }) => {
   return (
     <ListWrapper {...props}>
-      <Img src={AVATAR[data.avatar]} width="40px" height="40px" />
+      <Img src={data.avatar} width="40px" height="40px" />
       <MesBox>
         <Text
           themeColor="black"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { BAR_TEXT, MOCK_BARS } from "../../constant/bar";
 import MainArea from "../../component/MainArea";
 import Label from "../../component/Label";
@@ -23,6 +24,7 @@ const BoxArea = styled.div`
 
 const Bar = () => {
   const [label, setLabel] = useState(0);
+
   return (
     <MainArea title={BAR_TEXT.title} subtitled={BAR_TEXT.subtitled}>
       <FilterArea className="myScroll">
@@ -42,7 +44,11 @@ const Bar = () => {
       </FilterArea>
       <BoxArea>
         {bars.map(item => {
-          return <BarBox key={`barBox${item.name}`} data={item} />;
+          return (
+            <Link key={`barBox${item.name}`} to={"/chat/"}>
+              <BarBox data={item} />
+            </Link>
+          );
         })}
       </BoxArea>
     </MainArea>

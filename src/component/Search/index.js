@@ -13,7 +13,7 @@ const SearchBox = styled.div`
 const Search = ({ value, active, ...props }) => {
   return (
     <SearchBox active={active} {...props}>
-      <img src={search} />
+      <img src={search} alt="search" />
     </SearchBox>
   );
 };
