@@ -1,43 +1,43 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1a5864567cbdd68cb024704bebfb1f20",
+    "revision": "843f200b7741511062cc737e695dac0a",
     "url": "/f2e-w7-chatapp/index.html"
   },
   {
-    "revision": "9d37991347c90192c5df",
-    "url": "/f2e-w7-chatapp/static/css/main.ec851d19.chunk.css"
+    "revision": "3b6e17a65451ee7853fa",
+    "url": "/f2e-w7-chatapp/static/css/main.b0813be4.chunk.css"
   },
   {
-    "revision": "e7a1ba1982f0a503c11d",
-    "url": "/f2e-w7-chatapp/static/js/2.89224b53.chunk.js"
+    "revision": "b8431759fddf83671119",
+    "url": "/f2e-w7-chatapp/static/js/2.a9919d61.chunk.js"
   },
   {
-    "revision": "86bc99404ee21b6f9146",
-    "url": "/f2e-w7-chatapp/static/js/3.bafc7629.chunk.js"
+    "revision": "a9738e14b111a6c8c976",
+    "url": "/f2e-w7-chatapp/static/js/3.2e515928.chunk.js"
   },
   {
-    "revision": "5a51ff08974f4906c9bf",
-    "url": "/f2e-w7-chatapp/static/js/4.89938d2b.chunk.js"
+    "revision": "f132f1ea2cb83869e3da",
+    "url": "/f2e-w7-chatapp/static/js/4.3b609b42.chunk.js"
   },
   {
-    "revision": "417c0d0a1c7351ef038e",
-    "url": "/f2e-w7-chatapp/static/js/5.d975c864.chunk.js"
+    "revision": "988dcaa6337bfe651fce",
+    "url": "/f2e-w7-chatapp/static/js/5.5c5d4877.chunk.js"
   },
   {
-    "revision": "56a3f5ef7063cd0234a2",
-    "url": "/f2e-w7-chatapp/static/js/6.8d85a4c8.chunk.js"
+    "revision": "a77c5a882f86f3b741fd",
+    "url": "/f2e-w7-chatapp/static/js/6.1ecbee79.chunk.js"
   },
   {
-    "revision": "226a1a2f75b0c74ef92d",
-    "url": "/f2e-w7-chatapp/static/js/7.2da998b9.chunk.js"
+    "revision": "3301500c37961d42d7ac",
+    "url": "/f2e-w7-chatapp/static/js/7.34c56ca4.chunk.js"
   },
   {
-    "revision": "9d37991347c90192c5df",
-    "url": "/f2e-w7-chatapp/static/js/main.335e3096.chunk.js"
+    "revision": "3b6e17a65451ee7853fa",
+    "url": "/f2e-w7-chatapp/static/js/main.15c41a15.chunk.js"
   },
   {
-    "revision": "d399151a5f73f0a4c050",
-    "url": "/f2e-w7-chatapp/static/js/runtime~main.89c7803e.js"
+    "revision": "66883a8b6ff42e37def4",
+    "url": "/f2e-w7-chatapp/static/js/runtime~main.6f4821a5.js"
   },
   {
     "revision": "48a566385a8bfe2eb9f4778cef2be785",
@@ -56,10 +56,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w7-chatapp/static/media/bar-seat.a7c1c3c0.svg"
   },
   {
-    "revision": "e47d69c4c94827e5e0b3b797a69cae34",
-    "url": "/f2e-w7-chatapp/static/media/bar-tie-l.e47d69c4.svg"
-  },
-  {
     "revision": "43e5c8bb7abb17eb830bc622025e2610",
     "url": "/f2e-w7-chatapp/static/media/bar-tie.43e5c8bb.svg"
   },
@@ -76,12 +72,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w7-chatapp/static/media/chat-airship.3b537ae0.svg"
   },
   {
+    "revision": "352c1ed9bbcff27109551ffa623113fc",
+    "url": "/f2e-w7-chatapp/static/media/chat-bg.352c1ed9.svg"
+  },
+  {
     "revision": "8fa5598afd7bf00864634341b7f7ce2b",
     "url": "/f2e-w7-chatapp/static/media/chat-emoji.8fa5598a.svg"
   },
   {
     "revision": "4876b1ff088c4928792426dd06df8171",
     "url": "/f2e-w7-chatapp/static/media/chat-face.4876b1ff.svg"
+  },
+  {
+    "revision": "42e696fb20adc8b1a3351d88287ce487",
+    "url": "/f2e-w7-chatapp/static/media/chat-play.42e696fb.svg"
   },
   {
     "revision": "b23fe53e5cc0ad6eeeaf87d86fdda669",
