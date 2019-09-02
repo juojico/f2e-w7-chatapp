@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12f02bec9ac6c1167f9ec6cc644c15e3",
+    "revision": "0cbbb8799a522ee627b76b7fe7127b67",
     "url": "/f2e-w7-chatapp/index.html"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w7-chatapp/static/js/4.23100e73.chunk.js"
   },
   {
-    "revision": "541e4a38146b20f3c474",
-    "url": "/f2e-w7-chatapp/static/js/5.35813c76.chunk.js"
+    "revision": "197a2741e7abccc6284b",
+    "url": "/f2e-w7-chatapp/static/js/5.a20cbb86.chunk.js"
   },
   {
     "revision": "7586a67500aa506508e6",
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/f2e-w7-chatapp/static/js/main.f4a3633d.chunk.js"
   },
   {
-    "revision": "a7d01b1da9b78e03a124",
-    "url": "/f2e-w7-chatapp/static/js/runtime~main.656c8247.js"
+    "revision": "ca37df918dac95bc0b03",
+    "url": "/f2e-w7-chatapp/static/js/runtime~main.61c41b36.js"
   },
   {
     "revision": "48a566385a8bfe2eb9f4778cef2be785",
