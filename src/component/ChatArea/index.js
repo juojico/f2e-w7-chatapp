@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
 import Img from "../Img";
@@ -40,6 +40,7 @@ const Header = styled.div`
   padding: 16px 16px 16px 40px;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);
+  z-index: 1;
 `;
 
 const HeadIcon = styled(Img)`
@@ -96,12 +97,21 @@ const ChatArea = ({
   ...props
 }) => {
   const [mes, setMes] = useState("");
+  const messagesEnd = useRef(null);
 
   const local = JSON.parse(localStorage.getItem("chatRoom"));
   const nameId = local.id;
   const name = local.anonymous ? "anonymous" : local.name;
   const avatar = local.avatar;
   const chatsArr = chats ? Object.keys(chats).map(item => chats[item]) : [];
+
+  const scrollToBottom = () => {
+    messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  useEffect(()=>{
+    scrollToBottom();
+  },[chats])
 
   const handleInputChange = e => {
     setMes(e.target.value);
@@ -119,6 +129,7 @@ const ChatArea = ({
         mes
       };
       onSend(payload);
+      scrollToBottom();
     }
   };
 
@@ -152,6 +163,7 @@ const ChatArea = ({
           />
         );
       })}
+      <div ref={messagesEnd} />
       <InputArea>
         <InputBox>
           {type === "bar" ? (
