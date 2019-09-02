@@ -47,15 +47,15 @@ const MesBox = styled.div`
   }
 `;
 
-const ChatBox = ({ data }) => {
+const ChatBox = ({ data, yourself, img }) => {
   return (
-    <ChatBoxWrapper yourself={data.yourself}>
-      <Img src={data.avatar} width='30px' height='30px' />
-      <MesArea yourself={data.yourself}>
+    <ChatBoxWrapper yourself={yourself}>
+      <Img src={img} width='30px' height='30px' />
+      <MesArea yourself={yourself}>
         <Text color='rgba(0, 0, 0, 0.5)' size='12px' bottom='4px'>
           {data.name}
         </Text>
-        <MesBox yourself={data.yourself}>{data.mes}</MesBox>
+        <MesBox yourself={yourself}>{data.mes}</MesBox>
       </MesArea>
     </ChatBoxWrapper>
   );

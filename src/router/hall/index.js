@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { HALL_TEXT, MOCK_TOPIC } from "../../constant/hall";
@@ -32,22 +32,39 @@ const InputBox = styled.div`
 `;
 
 const Hall = route => {
-  const [useAnonymous, setUseAnonymous] = useState(true);
+  const local = JSON.parse(localStorage.getItem("chatRoom"));
+  const [useAnonymous, setUseAnonymous] = useState(local.anonymous);
   const [nickName, setNickName] = useState("");
   const nickname = useRef(null);
 
+  useEffect(() => {
+    if (!local) {
+      const newData = { id: Date.now(), name: "", anonymous: true, avatar: 1 };
+      localStorage.setItem("chatRoom", JSON.stringify(newData));
+    }
+    console.log("TCL: local", local);
+  }, []);
+
   const handleUseAnonymous = () => {
     setUseAnonymous(true);
+    const data = { ...local, anonymous: true };
+    localStorage.setItem("chatRoom", JSON.stringify(data));
   };
 
   const handleUseNickName = () => {
     setUseAnonymous(false);
     nickname.current.focus();
+    const data = { ...local, anonymous: false };
+    localStorage.setItem("chatRoom", JSON.stringify(data));
   };
 
   const handleInputChange = e => {
-    setNickName(e.target.value);
-    console.log("TCL: value", e.target.value, nickName);
+    const name = e.target.value;
+    const avatar = Math.round(Math.random() * 3);
+    setNickName(name);
+    const data = { ...local, name, avatar };
+    localStorage.setItem("chatRoom", JSON.stringify(data));
+    console.log("TCL: value", e.target.value, nickName, localStorage);
   };
 
   return (
@@ -74,6 +91,7 @@ const Hall = route => {
           <InputBox close={useAnonymous}>
             <Input
               placeholder='Enter Your Nickname'
+              value={local.name}
               itemRef={nickname}
               maxWidth='210px'
               maxLength={20}

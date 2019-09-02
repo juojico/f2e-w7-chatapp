@@ -4,6 +4,8 @@
   "homepage": "https://juojico.github.io/f2e-w7-chatapp",
   "private": true,
   "dependencies": {
+    "firebase": "^6.5.0",
+    "firebase-tools": "^7.3.0",
     "gh-pages": "^2.1.1",
     "history": "^4.9.0",
     "moment": "^2.24.0",
