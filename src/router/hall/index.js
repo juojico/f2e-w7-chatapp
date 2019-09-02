@@ -31,19 +31,21 @@ const InputBox = styled.div`
   transition: 0.3s;
 `;
 
-const Hall = route => {
-  const local = JSON.parse(localStorage.getItem("chatRoom"));
-  const [useAnonymous, setUseAnonymous] = useState(local.anonymous);
-  const [nickName, setNickName] = useState("");
-  const nickname = useRef(null);
+const defaultLocal = {
+  id: Date.now(),
+  name: "anonymous",
+  anonymous: true,
+  avatar: 1
+};
 
-  useEffect(() => {
-    if (!local) {
-      const newData = { id: Date.now(), name: "", anonymous: true, avatar: 1 };
-      localStorage.setItem("chatRoom", JSON.stringify(newData));
-    }
-    console.log("TCL: local", local);
-  }, []);
+const local = localStorage.getItem("chatRoom")
+  ? JSON.parse(localStorage.getItem("chatRoom"))
+  : defaultLocal;
+
+const Hall = route => {
+  const [useAnonymous, setUseAnonymous] = useState(local.anonymous);
+  const [nickName, setNickName] = useState(local.name);
+  const nickname = useRef(null);
 
   const handleUseAnonymous = () => {
     setUseAnonymous(true);
@@ -52,10 +54,12 @@ const Hall = route => {
   };
 
   const handleUseNickName = () => {
+    console.log("TCL: handleUseNickName -> local", local);
     setUseAnonymous(false);
     nickname.current.focus();
     const data = { ...local, anonymous: false };
     localStorage.setItem("chatRoom", JSON.stringify(data));
+    console.log("TCL: handleUseNickName -> data", data);
   };
 
   const handleInputChange = e => {
@@ -64,7 +68,7 @@ const Hall = route => {
     setNickName(name);
     const data = { ...local, name, avatar };
     localStorage.setItem("chatRoom", JSON.stringify(data));
-    console.log("TCL: value", e.target.value, nickName, localStorage);
+    console.log("TCL: value", e.target.value, nickName);
   };
 
   return (
@@ -91,7 +95,7 @@ const Hall = route => {
           <InputBox close={useAnonymous}>
             <Input
               placeholder='Enter Your Nickname'
-              value={local.name}
+              value={nickName}
               itemRef={nickname}
               maxWidth='210px'
               maxLength={20}

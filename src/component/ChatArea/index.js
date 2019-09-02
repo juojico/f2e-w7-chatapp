@@ -163,7 +163,6 @@ const ChatArea = ({
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
           />
-          }
           <Img
             src={airship}
             width='24px'

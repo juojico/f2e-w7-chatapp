@@ -15,5 +15,6 @@ firebase.initializeApp(firebaseConfig);
 export const msgRef = firebase.database().ref("/messages/");
 
 export const storedata = (payload, id) => {
-  msgRef.child(`${id}/chats/${Date.now()}`).set(payload);
+  const newData = Date.now();
+  msgRef.child(`${id}/chats/${newData}`).set(payload);
 };
