@@ -42,6 +42,8 @@ const local = localStorage.getItem("chatRoom")
   ? JSON.parse(localStorage.getItem("chatRoom"))
   : defaultLocal;
 
+localStorage.setItem("chatRoom", JSON.stringify(local));
+
 const Hall = route => {
   const [useAnonymous, setUseAnonymous] = useState(local.anonymous);
   const [nickName, setNickName] = useState(local.name);
@@ -57,7 +59,7 @@ const Hall = route => {
     console.log("TCL: handleUseNickName -> local", local);
     setUseAnonymous(false);
     nickname.current.focus();
-    const data = { ...local, anonymous: false };
+    const data = { ...local, name: nickName, anonymous: false };
     localStorage.setItem("chatRoom", JSON.stringify(data));
     console.log("TCL: handleUseNickName -> data", data);
   };
@@ -66,7 +68,7 @@ const Hall = route => {
     const name = e.target.value;
     const avatar = Math.round(Math.random() * 3);
     setNickName(name);
-    const data = { ...local, name, avatar };
+    const data = { ...local, name, avatar, anonymous: false };
     localStorage.setItem("chatRoom", JSON.stringify(data));
     console.log("TCL: value", e.target.value, nickName);
   };

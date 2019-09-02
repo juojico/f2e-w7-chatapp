@@ -86,6 +86,8 @@ const InputBox = styled.div`
   padding: 8px 20px;
 `;
 
+const local = JSON.parse(localStorage.getItem("chatRoom"));
+
 const ChatArea = ({
   type,
   title,
@@ -99,7 +101,6 @@ const ChatArea = ({
   const [mes, setMes] = useState("");
   const messagesEnd = useRef(null);
 
-  const local = JSON.parse(localStorage.getItem("chatRoom"));
   const nameId = local.id;
   const name = local.anonymous ? "anonymous" : local.name;
   const avatar = local.avatar;
@@ -107,11 +108,11 @@ const ChatArea = ({
 
   const scrollToBottom = () => {
     messagesEnd.current.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     scrollToBottom();
-  },[chats])
+  }, [chats]);
 
   const handleInputChange = e => {
     setMes(e.target.value);
