@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { HALL_TEXT, MOCK_TOPIC } from "../../constant/hall";
@@ -11,6 +11,7 @@ import HallBox from "../../component/HallBox";
 import MainMenu from "../../component/MainMenu";
 import MainArea from "../../component/MainArea";
 import logo from "../../asset/icon/logo.svg";
+import Store from "../../store";
 
 const topics = MOCK_TOPIC;
 
@@ -45,23 +46,27 @@ const local = localStorage.getItem("chatRoom")
 localStorage.setItem("chatRoom", JSON.stringify(local));
 
 const Hall = route => {
+  const value = useContext(Store);
+  const txt = value.text.hall;
   const [useAnonymous, setUseAnonymous] = useState(local.anonymous);
   const [nickName, setNickName] = useState(local.name);
   const nickname = useRef(null);
 
-  const handleUseAnonymous = () => {
-    setUseAnonymous(true);
-    const data = { ...local, anonymous: true };
+  const setLocal = data => {
     localStorage.setItem("chatRoom", JSON.stringify(data));
   };
 
+  const handleUseAnonymous = () => {
+    setUseAnonymous(true);
+    const data = { ...local, anonymous: true };
+    setLocal(data);
+  };
+
   const handleUseNickName = () => {
-    console.log("TCL: handleUseNickName -> local", local);
     setUseAnonymous(false);
     nickname.current.focus();
     const data = { ...local, name: nickName, anonymous: false };
-    localStorage.setItem("chatRoom", JSON.stringify(data));
-    console.log("TCL: handleUseNickName -> data", data);
+    setLocal(data);
   };
 
   const handleInputChange = e => {
@@ -69,8 +74,7 @@ const Hall = route => {
     const avatar = Math.round(Math.random() * 3);
     setNickName(name);
     const data = { ...local, name, avatar, anonymous: false };
-    localStorage.setItem("chatRoom", JSON.stringify(data));
-    console.log("TCL: value", e.target.value, nickName);
+    setLocal(data);
   };
 
   return (
@@ -79,18 +83,18 @@ const Hall = route => {
       <MainArea>
         <WelcomeArea>
           <Text type='p2' align='center'>
-            {HALL_TEXT.welcome}
+            {txt.welcome}
           </Text>
           <Img src={logo} width='241px' height='33px' />
           <Owl />
-          <Text type='p1'>{HALL_TEXT.chooseLogin}</Text>
+          <Text type='p1'>{txt.chooseLogin}</Text>
           <ButtonFancy
-            text={HALL_TEXT.btn1}
+            text={txt.btn1}
             on={useAnonymous}
             onClick={handleUseAnonymous}
           />
           <ButtonFancy
-            text={HALL_TEXT.btn2}
+            text={txt.btn2}
             on={!useAnonymous}
             onClick={handleUseNickName}
           />
@@ -107,7 +111,7 @@ const Hall = route => {
           </InputBox>
         </WelcomeArea>
         <HallBoxArea>
-          <Text type='p1'>{HALL_TEXT.dayTopic}</Text>
+          <Text type='p1'>{txt.dayTopic}</Text>
           {topics.map((item, index) => {
             return (
               <Link key={`topic${index}`} to={`/topic/chat/${item.id}`}>

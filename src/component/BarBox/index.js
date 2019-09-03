@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import propTypes from "prop-types";
 import styled from "styled-components";
 import Box from "../Box";
@@ -6,6 +6,7 @@ import Text from "../Text";
 import wine from "../../asset/avatar/wine.svg";
 import martini from "../../asset/avatar/martini.svg";
 import seat from "../../asset/icon/bar-seat.svg";
+import Store from "../../store";
 
 const Header = styled.div`
   padding-bottom: 24px;
@@ -75,6 +76,8 @@ const MakeSeat = (total, able) => {
 };
 
 const BarBox = ({ data, ...props }) => {
+  const value = useContext(Store);
+  const txt = value.text.bar;
   return (
     <Box {...props}>
       <Header>
@@ -82,39 +85,39 @@ const BarBox = ({ data, ...props }) => {
         <img src={ICON[data.name]} alt={data.name} />
         <Description>
           <Text
-            themeColor="whitegrey"
-            size="10px"
-            bottom="4px"
-            fontStyle="italic"
+            themeColor='whitegrey'
+            size='10px'
+            bottom='4px'
+            fontStyle='italic'
           >
-            The bar of
+            {txt.of}
           </Text>
           <Text
-            themeColor="white"
-            size="24px"
-            bottom="2px"
-            fontWeight="bold"
-            fontStyle="italic"
+            themeColor='white'
+            size='24px'
+            bottom='2px'
+            fontWeight='bold'
+            fontStyle='italic'
           >
             {data.description}
           </Text>
-          <Text themeColor="white" size="10px">
-            Feel free to talk about today.
+          <Text themeColor='white' size='10px'>
+            {txt.feel}
           </Text>
         </Description>
       </Header>
 
       <Content>
-        <Text themeColor="whitegrey" size="10px" bottom="4px">
-          Now we are talking about
+        <Text themeColor='whitegrey' size='10px' bottom='4px'>
+          {txt.now}
         </Text>
         {data.nowTalking.map(item => (
           <TextLabel key={`textLabel${item}`}>{item}</TextLabel>
         ))}
       </Content>
 
-      <Text themeColor="whitegrey" size="10px" top="16px" bottom="4px">
-        Seat available : {data.seatAble}
+      <Text themeColor='whitegrey' size='10px' top='16px' bottom='4px'>
+        {txt.seats} {data.seatAble}
       </Text>
       <SeatBox>{MakeSeat(data.seats, data.seatAble)}</SeatBox>
     </Box>

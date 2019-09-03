@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { ROOM_TEXT, MOCK_ROOMS } from "../../constant/room";
 import Search from "../../component/Search";
 import MainMenu from "../../component/MainMenu";
 import MainArea from "../../component/MainArea";
 import RoomList from "../../component/RoomList";
+import Store from "../../store";
 
 const rooms = MOCK_ROOMS;
 
@@ -22,10 +23,12 @@ const BoxArea = styled.div`
 `;
 
 const Room = route => {
+  const value = useContext(Store);
+  const txt = value.text.room;
   return (
     <>
       <MainMenu path={route.match.path} />
-      <MainArea title={ROOM_TEXT.title} subtitled={ROOM_TEXT.subtitled}>
+      <MainArea title={txt.title} subtitled={txt.subtitled}>
         <SearchBox />
         <BoxArea>
           {rooms.map(item => (

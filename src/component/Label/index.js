@@ -14,8 +14,7 @@ const LabelBox = styled.div`
   width: 96px;
   height: 36px;
   margin-right: 5px;
-  background: ${props =>
-    props.active ? "black" : "rgba(255, 255, 255, .2)"};
+  background: ${props => (props.active ? "black" : "rgba(255, 255, 255, .2)")};
   color: ${props => (props.active ? "white" : "black")};
   font-size: 10px;
   border-radius: 3px;
@@ -28,12 +27,7 @@ const LabelBox = styled.div`
   }
 `;
 
-const ICONS = {
-  ALL: all,
-  JOYFUL: joyful,
-  RELAXED: relaxed,
-  INTENSE: intense
-};
+const ICONS = [all, joyful, relaxed, intense];
 
 const Label = ({ text, icon, active, ...props }) => {
   return (
@@ -46,7 +40,7 @@ const Label = ({ text, icon, active, ...props }) => {
 
 Label.propTypes = {
   text: propTypes.string,
-  icon: propTypes.string
+  icon: propTypes.number
 };
 
 export default Label;

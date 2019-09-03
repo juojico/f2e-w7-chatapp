@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { CLUB_TEXT, MOCK_CLUBS } from "../../constant/club";
 import ClubBox from "../../component/ClubBox";
 import MainMenu from "../../component/MainMenu";
 import MainArea from "../../component/MainArea";
+import Store from "../../store";
 
 const clubs = MOCK_CLUBS;
 
@@ -16,10 +17,12 @@ const BoxArea = styled.div`
 `;
 
 const Club = route => {
+  const value = useContext(Store);
+  const txt = value.text.club;
   return (
     <>
       <MainMenu path={route.match.path} />
-      <MainArea title={CLUB_TEXT.title} subtitled={CLUB_TEXT.subtitled}>
+      <MainArea title={txt.title} subtitled={txt.subtitled}>
         <BoxArea>
           {clubs.map((item, index) => {
             return (
