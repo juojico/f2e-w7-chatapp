@@ -1,47 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5706d5c4788bc4d1e48037a2d714adf4",
+    "revision": "517b6078e9a34213af97dd0061c1b299",
     "url": "/f2e-w7-chatapp/index.html"
   },
   {
-    "revision": "b93cb2579ac1776329b5",
+    "revision": "b2fcafb2c5064c540e0f",
     "url": "/f2e-w7-chatapp/static/css/main.b0813be4.chunk.css"
   },
   {
-    "revision": "1005f73963d6e3249695",
-    "url": "/f2e-w7-chatapp/static/js/2.a3f4fc02.chunk.js"
+    "revision": "a2397aeddd0981f183bc",
+    "url": "/f2e-w7-chatapp/static/js/2.e4966ae1.chunk.js"
   },
   {
-    "revision": "5abd4606621b15c1d28d",
-    "url": "/f2e-w7-chatapp/static/js/3.2c0e800e.chunk.js"
+    "revision": "171c53d30cd338226181",
+    "url": "/f2e-w7-chatapp/static/js/3.4f9a566d.chunk.js"
   },
   {
-    "revision": "c9113806927525d12ddc",
-    "url": "/f2e-w7-chatapp/static/js/4.f610c23a.chunk.js"
+    "revision": "aae5676f0daedfef484a",
+    "url": "/f2e-w7-chatapp/static/js/4.279991ec.chunk.js"
   },
   {
-    "revision": "7c04b21d8d6b190183cf",
-    "url": "/f2e-w7-chatapp/static/js/5.ba3ef3fa.chunk.js"
+    "revision": "55fca6ff7f506e068d35",
+    "url": "/f2e-w7-chatapp/static/js/5.03c8e370.chunk.js"
   },
   {
-    "revision": "7586a67500aa506508e6",
-    "url": "/f2e-w7-chatapp/static/js/6.e8534902.chunk.js"
+    "revision": "4eaa1a1cc7e5f7ea579a",
+    "url": "/f2e-w7-chatapp/static/js/6.75237f7c.chunk.js"
   },
   {
-    "revision": "4029f53b084dc35f5743",
-    "url": "/f2e-w7-chatapp/static/js/7.9b8a7882.chunk.js"
+    "revision": "5ebbc31193b6ee0d97b2",
+    "url": "/f2e-w7-chatapp/static/js/7.8ca3fd95.chunk.js"
   },
   {
-    "revision": "4da160b39a7e769833b8",
-    "url": "/f2e-w7-chatapp/static/js/8.5c7303ec.chunk.js"
+    "revision": "4345f67ab00561982195",
+    "url": "/f2e-w7-chatapp/static/js/8.abeaf897.chunk.js"
   },
   {
-    "revision": "b93cb2579ac1776329b5",
-    "url": "/f2e-w7-chatapp/static/js/main.f4a3633d.chunk.js"
+    "revision": "b2fcafb2c5064c540e0f",
+    "url": "/f2e-w7-chatapp/static/js/main.b8ba9ab2.chunk.js"
   },
   {
-    "revision": "efc1736ee76b83ec88de",
-    "url": "/f2e-w7-chatapp/static/js/runtime~main.12ec6e28.js"
+    "revision": "e2afb806fa85ff341fba",
+    "url": "/f2e-w7-chatapp/static/js/runtime~main.77ca497b.js"
   },
   {
     "revision": "48a566385a8bfe2eb9f4778cef2be785",
